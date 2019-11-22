@@ -23,6 +23,14 @@ check out Chapter 7 of the
 
 - macOS 10.12+
 
+## Installation
+
+Install `ner` with [Homebrew](https://brew.sh) using the following command:
+
+```terminal
+$ brew install flight-school/formulae/ner
+```
+
 ## Usage
 
 Text can be read from either standard input or file arguments,

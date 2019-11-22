@@ -5,31 +5,15 @@
 You can use it to extract names of people, places, and organizations
 from standard input or file arguments.
 
-Named entities are written to standard output on separate lines.
-Each line consists of
-the tag (`PERSON`, `PLACE`, or `ORGANIZATION`),
-followed by a tab (`\t`),
-followed by the token.
-
-<details>
-<summary>Grammar as Regular Expression</summary>
-
-```regexp
-^(?<tag>(?>PERSON|PLACE|ORGANIZATION))\t(?<token>.+)$
+```terminal
+$ echo "Designed by Apple in California." | ner
+ORGANIZATION	Apple
+PLACE	California
 ```
-
-</details>
-
-`ner` uses
-[`NLTagger`](https://developer.apple.com/documentation/naturallanguage/nltagger)
-when available,
-falling back on
-[`NSLinguisticTagger`](https://developer.apple.com/documentation/foundation/nslinguistictagger)
-for older versions of macOS.
 
 ---
 
-For more information about using the NaturalLanguage framework,
+For more information about natural language processing in Swift,
 check out Chapter 7 of the
 [Flight School Guide to Swift Strings](https://flight.school/books/strings).
 
@@ -66,6 +50,7 @@ PLACE	California
 ```terminal
 $ cat barton.txt
 The American Red Cross was established in Washington DC by Clara Barton.
+
 $ ner barton.txt
 ORGANIZATION	American Red Cross
 PLACE	Washington DC
@@ -100,6 +85,25 @@ American Red Cross
 Washington DC
 Clara Barton
 ```
+
+## Additional Details
+
+Named entities are written to standard output on separate lines.
+Each line consists of
+the tag (`PERSON`, `PLACE`, or `ORGANIZATION`),
+followed by a tab (`\t`),
+followed by the token:
+
+```regexp
+^(?<tag>(?>PERSON|PLACE|ORGANIZATION))\t(?<token>.+)$
+```
+
+`ner` uses
+[`NLTagger`](https://developer.apple.com/documentation/naturallanguage/nltagger)
+when available,
+falling back on
+[`NSLinguisticTagger`](https://developer.apple.com/documentation/foundation/nslinguistictagger)
+for older versions of macOS.
 
 ## License
 

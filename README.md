@@ -13,7 +13,7 @@ PLACE	California
 
 ---
 
-For more information about natural language processing in Swift,
+For more information about natural language processing,
 check out Chapter 7 of the
 [Flight School Guide to Swift Strings](https://flight.school/books/strings).
 

@@ -9,11 +9,16 @@ Named entities are written to standard output on separate lines.
 Each line consists of
 the tag (`PERSON`, `PLACE`, or `ORGANIZATION`),
 followed by a tab (`\t`),
-followed by the token:
+followed by the token.
+
+<details>
+<summary>Grammar as Regular Expression</summary>
 
 ```regexp
 ^(?<tag>(?>PERSON|PLACE|ORGANIZATION))\t(?<token>.+)$
 ```
+
+</details>
 
 `ner` uses
 [`NLTagger`](https://developer.apple.com/documentation/naturallanguage/nltagger)
@@ -27,6 +32,8 @@ for older versions of macOS.
 For more information about using the NaturalLanguage framework,
 check out Chapter 7 of the
 [Flight School Guide to Swift Strings](https://flight.school/books/strings).
+
+---
 
 ## Requirements
 
@@ -85,7 +92,7 @@ PLACE	United States of America
 [Unix text processing commands](https://en.wikibooks.org/wiki/Guide_to_Unix/Commands/Text_Processing),
 like `cut`, `sort`, `uniq`, `comm`, `grep` `sed`, and `awk`.
 
-### Filtering `PERSON` / `PLACE` / `ORGANIZATION` Tags
+### Filtering Tags
 
 ```terminal
 $ ner barton.txt | cut -f2

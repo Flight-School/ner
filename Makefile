@@ -32,7 +32,7 @@ uninstall:
 
 .PHONY: clean
 distclean:
-	@rm -f $(BUILDDIR)/release
+	@rm -rf $(BUILDDIR)/release
 
 .PHONY: clean
 clean: distclean
